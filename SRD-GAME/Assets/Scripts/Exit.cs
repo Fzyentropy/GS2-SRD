@@ -18,7 +18,7 @@ public class Exit : MonoBehaviour
             // Set the player Location Indicator to false (Big Map)
             // Load the big map
             
-            // GameManager.isPlayerAtShelter = false;
+            GameManager.moveTimeInInt= 11;  Debug.Log("Movetime reset in Exit");
             SceneManager.LoadScene("Prototype_1",LoadSceneMode.Single);
             
             // send a message to Manager, that player has entered the big map, the movement begins

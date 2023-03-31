@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     public static bool isPlayerAcceptingInput;           // Can player move using WASD?
     
-    public float moveTimeInFloat;                       // the movement time for player in Float, minutes, seconds
+    public static int moveTimeInInt = 1;                       // the movement time for player in Float, minutes, seconds
     public int moveTimeInMinutes;
     public int moveTimeInSeconds;
 
@@ -29,11 +29,7 @@ public class GameManager : MonoBehaviour
 
     
     // MIS
-
-
-
-
-
+    
     // FILE RELEVANCE
     
     
@@ -45,7 +41,7 @@ public class GameManager : MonoBehaviour
     ////////////////////////////////////////     GAME MANAGER VARIABLES    //////////////////////////////////////////////// 
 
     
-    private void Awake()
+    void Awake()
     {
         // Make Game Manager Singleton
         SingletonGameManager();
@@ -54,11 +50,11 @@ public class GameManager : MonoBehaviour
         UpdatePlayerLocationIndicator();
         
         // If Player is not in Shelter (Player is in Big Map), then start the timer
-        if (!isPlayerAtShelter)
+        /*if (!isPlayerAtShelter)
         {
             StartCoroutine(MovementTimer());
             Debug.Log("Timer Started.");
-        }
+        }*/
         
     }
 
@@ -66,7 +62,7 @@ public class GameManager : MonoBehaviour
     
     void Start()
     {
-        
+       
        
     }
 
@@ -74,7 +70,6 @@ public class GameManager : MonoBehaviour
     void Update()
     {   
         
-        // CheckPlayerMovement();
         // if(SceneManager.GetActiveScene().name == "Prototype_1") {UpdateUI();}
         if (!isPlayerAtShelter) {UpdateBigMapUI();}
     }
@@ -107,7 +102,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
     
     
     // Implementation
@@ -136,32 +130,6 @@ public class GameManager : MonoBehaviour
         }
     }
     
-    
-    
-    
-    // Check if the timer of MOVEMENT goes to zero 
-
-    void CheckPlayerMovement()
-    {
-        
-        if (moveTimeInFloat > 0)
-        {
-            if (!isPlayerAcceptingInput)
-            {
-                isPlayerAcceptingInput = true;
-            }
-        }
-
-
-        if (moveTimeInFloat <= 0)
-        {
-            // Player dies and go back to the house. 
-            PlayerDeath();                                       
-            
-        }
-        
-        
-    }
 
 
     
@@ -173,42 +141,42 @@ public class GameManager : MonoBehaviour
     // Timer Implementation Loop
     // check the status of timer
     
-    IEnumerator MovementTimer()
+    /*IEnumerator MovementTimer()
     {
         
-           
         // Check Current cards, add up the movement time from all the cards
         // Convert minutes and seconds to IEnumerator calculation value
         // TODO : Switch to Adding up Card1 + Card2 + Card3
-        moveTimeInFloat = 10f;      
+        moveTimeInInt = 9;
+        Debug.Log("Timer time reseted.");
         
-    
-    
+        
         // if it does not reach 0, then keep counting (Timer--)
         // if it reaches 0, call "Player Death" function
         while (true)
         {
-            if (moveTimeInFloat <= 0) { break; }
+            if (moveTimeInInt <= 0) { Debug.Log("Timer break");
+                moveTimeInInt = 10; break; }
             yield return new WaitForSeconds(1);
-            moveTimeInFloat--;
+            moveTimeInInt--;
+            Debug.Log("Timer is counting  : " + moveTimeInInt);
         }
         
         PlayerDeath();
-    
         
-        yield return null;
-    }
+    }*/
 
 
-    // USE in UPDATE()
+    
     // Show Time On UI
     // Convert the float value to minutes+seconds time scale
     // Update the current time in minutes+seconds to Big Map UI
+    // USE in UPDATE()
 
     void UpdateBigMapUI()
     {
-        moveTimeInMinutes = (int)(moveTimeInFloat / 60);
-        moveTimeInSeconds = (int)(moveTimeInFloat % 60);
+        moveTimeInMinutes = (int)(moveTimeInInt / 60);
+        moveTimeInSeconds = (int)(moveTimeInInt % 60);
         
         // if textTimer is not assigned, then assign the Text_Timer in UI Canvas to it
         if (!isPlayerAtShelter)
@@ -235,12 +203,13 @@ public class GameManager : MonoBehaviour
     // Player dies, Trigger the Death Animation or Effects, then sent back to the Shelter
         // Set the PlayerLocationIndicator to true (Shelter)
         // Then Load the Shelter scene
-    void PlayerDeath()
+    public void PlayerDeath()
     {
         Debug.Log("Player was sent back home.");
         
         isPlayerAtShelter = true;
         SceneManager.LoadScene("Shelter_start", LoadSceneMode.Single);
+        
     }
     
     
