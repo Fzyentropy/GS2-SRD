@@ -4976,8 +4976,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardCollection: {fileID: 1531323876990455798, guid: 236ee22abcc5e3944b5ce6b3983c0b8f, type: 3}
+  cardCollectionHolder: {fileID: 0}
   UI_E: {fileID: 7750598888723811824, guid: 4c2e0fed7bdd8194db0c6db2dae4fcf5, type: 3}
   canOpenCollection: 0
+  isCollectionOpen: 0
 --- !u!1 &578478714
 GameObject:
   m_ObjectHideFlags: 0

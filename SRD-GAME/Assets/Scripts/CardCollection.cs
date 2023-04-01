@@ -44,6 +44,7 @@ public class CardCollection : MonoBehaviour
     }
 
 
+    
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) & canOpenCollection & !isCollectionOpen)
@@ -60,4 +61,9 @@ public class CardCollection : MonoBehaviour
             Debug.Log("card collection destroyed");
         }
     }
+
+    
+    
+    
+    
 }
