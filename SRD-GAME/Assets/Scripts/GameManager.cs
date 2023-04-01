@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     public static bool isPlayerAcceptingInput;           // Can player move using WASD?
     
-    public static int moveTimeInInt = 1;                       // the movement time for player in Float, minutes, seconds
+    public static int moveTimeInInt;                       // the movement time for player in Float, minutes, seconds
     public int moveTimeInMinutes;
     public int moveTimeInSeconds;
 
@@ -48,14 +48,7 @@ public class GameManager : MonoBehaviour
         
         // Update Player Location Indicator : isPlayerAtShelter
         UpdatePlayerLocationIndicator();
-        
-        // If Player is not in Shelter (Player is in Big Map), then start the timer
-        /*if (!isPlayerAtShelter)
-        {
-            StartCoroutine(MovementTimer());
-            Debug.Log("Timer Started.");
-        }*/
-        
+
     }
 
     
@@ -71,6 +64,7 @@ public class GameManager : MonoBehaviour
     {   
         
         // if(SceneManager.GetActiveScene().name == "Prototype_1") {UpdateUI();}
+        
         if (!isPlayerAtShelter) {UpdateBigMapUI();}
     }
     
@@ -106,6 +100,7 @@ public class GameManager : MonoBehaviour
     
     // Implementation
     // Check which scene is player actually in
+    
     // Update Player location Indicator to either "Shelter" or "Big Map"
     // USE everytime loading a new Scene
     // USE at AWAKE()
@@ -129,46 +124,11 @@ public class GameManager : MonoBehaviour
             Debug.Log("Player Location Indicator is set to:   Big Map");
         }
     }
-    
 
 
-    
-    // USE when entering the Big Map
-    // Coroutine
-    // Set the Player Movement Timer
-    
-    // Initialize Timer 
-    // Timer Implementation Loop
-    // check the status of timer
-    
-    /*IEnumerator MovementTimer()
-    {
-        
-        // Check Current cards, add up the movement time from all the cards
-        // Convert minutes and seconds to IEnumerator calculation value
-        // TODO : Switch to Adding up Card1 + Card2 + Card3
-        moveTimeInInt = 9;
-        Debug.Log("Timer time reseted.");
-        
-        
-        // if it does not reach 0, then keep counting (Timer--)
-        // if it reaches 0, call "Player Death" function
-        while (true)
-        {
-            if (moveTimeInInt <= 0) { Debug.Log("Timer break");
-                moveTimeInInt = 10; break; }
-            yield return new WaitForSeconds(1);
-            moveTimeInInt--;
-            Debug.Log("Timer is counting  : " + moveTimeInInt);
-        }
-        
-        PlayerDeath();
-        
-    }*/
 
-
-    
     // Show Time On UI
+    
     // Convert the float value to minutes+seconds time scale
     // Update the current time in minutes+seconds to Big Map UI
     // USE in UPDATE()
@@ -178,19 +138,7 @@ public class GameManager : MonoBehaviour
         moveTimeInMinutes = (int)(moveTimeInInt / 60);
         moveTimeInSeconds = (int)(moveTimeInInt % 60);
         
-        // if textTimer is not assigned, then assign the Text_Timer in UI Canvas to it
-        if (!isPlayerAtShelter)
-        {
-            /*// Debug.Log("it runs here");
-            GameObject textGameObject = GameObject.Find("Text_Timer");
-            if(textGameObject != null) {Debug.Log("Game Object found");}
-            textTimer = textGameObject.GetComponent<TMP_Text>();
-            if(textTimer != null) {Debug.Log("Text Component found");}*/
-            
-            
-            
-            textTimer = GameObject.Find("Text_Timer").GetComponent<TMP_Text>();
-        }
+        textTimer = GameObject.Find("Text_Timer").GetComponent<TMP_Text>();
         
         if (moveTimeInMinutes > 0) {textTimer.text = "Timer:  " + moveTimeInMinutes + ":" + moveTimeInSeconds;}
         else {textTimer.text = "Timer:  " + moveTimeInSeconds;}
@@ -199,6 +147,7 @@ public class GameManager : MonoBehaviour
     
     
     // Player Death
+    
     // IMPLEMENTATION:
     // Player dies, Trigger the Death Animation or Effects, then sent back to the Shelter
         // Set the PlayerLocationIndicator to true (Shelter)
