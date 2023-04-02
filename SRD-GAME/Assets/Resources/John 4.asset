@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8bbcf723712319344871ff5cbb8d5b34, type: 3}
-  m_Name: Peter
+  m_Name: John 4
   m_EditorClassIdentifier: 
-  cardName: Peter
-  cardDescription: You spent time with this person outdoors
-  cardLine: "\"I walked until nightfall, and then I walked some more. I didn't want
-    to stop until I made it to the mountains. \u201C"
-  cardFunction: MOVEMENT
-  moveTime: 10
+  cardName: John4
+  cardAvatar: {fileID: 21300000, guid: 5e3f78036b40fc04ca4a3a083049c44f, type: 3}
+  cardLog: Forget it, alright? The last thing we need is someone like that on our
+    case. I mean, honestly, what would Peter say about that?
+  cardEffect: MOVEMENT
+  cardEffectDescription: 1:00
+  moveTime: 1

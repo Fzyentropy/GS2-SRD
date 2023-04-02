@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using Image = UnityEngine.UIElements.Image;
 
 
 [CreateAssetMenu(fileName = "A New Card", menuName = "Card")]
@@ -8,17 +10,12 @@ public class MCard : ScriptableObject
 {
 
     public string cardName;
-    [TextArea] public string cardDescription;
-    [TextArea] public string cardLine;
-    [TextArea] public string cardFunction;
-
+    public Sprite cardAvatar;
+    [TextArea] public string cardLog;
+    [TextArea] public string cardEffect;
+    public string cardEffectDescription;
     public float moveTime;
     
-    public void Function_Movement()
-    {
-        
-    }
-
     
 
 }

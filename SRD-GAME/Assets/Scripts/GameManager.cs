@@ -66,6 +66,7 @@ public class GameManager : MonoBehaviour
         // if(SceneManager.GetActiveScene().name == "Prototype_1") {UpdateUI();}
         
         if (!isPlayerAtShelter) {UpdateBigMapUI();}
+
     }
     
     
