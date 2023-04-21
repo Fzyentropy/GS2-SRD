@@ -21,13 +21,11 @@ public class GameManager : MonoBehaviour
 
     public static bool isPlayerAcceptingInput;           // Can player move using WASD?
     
-    public static int moveTimeInInt;                       // the movement time for player in Float, minutes, seconds
-    public int moveTimeInMinutes;
-    public int moveTimeInSeconds;
+    public static int movementSteps;                     // the movement steps for player, int
 
-    public TMP_Text textTimer;
+    public float gridScale = 2.5f;                          // the transformation scale from "Our Grid" to Unity Unit
 
-    
+
     // MIS
     
     // FILE RELEVANCE
@@ -64,8 +62,6 @@ public class GameManager : MonoBehaviour
     {   
         
         // if(SceneManager.GetActiveScene().name == "Prototype_1") {UpdateUI();}
-        
-        if (!isPlayerAtShelter) {UpdateBigMapUI();}
 
     }
     
@@ -109,7 +105,7 @@ public class GameManager : MonoBehaviour
     // isPlayerAtShelter
     // true: Shelter
     // false: Big Map
-    
+
     void UpdatePlayerLocationIndicator()
     {
         // Check current Scene name and set Player Location Indicator
@@ -119,32 +115,14 @@ public class GameManager : MonoBehaviour
             isPlayerAtShelter = true;
             Debug.Log("Player Location Indicator is set to:   Shelter");
         }
-        if (SceneManager.GetActiveScene().name == "Prototype_1")
+        if (SceneManager.GetActiveScene().name == "GameWorld") // Remember to Reset name if scene changes
         {
             isPlayerAtShelter = false;
             Debug.Log("Player Location Indicator is set to:   Big Map");
         }
     }
-
-
-
-    // Show Time On UI
     
-    // Convert the float value to minutes+seconds time scale
-    // Update the current time in minutes+seconds to Big Map UI
-    // USE in UPDATE()
-
-    void UpdateBigMapUI()
-    {
-        moveTimeInMinutes = (int)(moveTimeInInt / 60);
-        moveTimeInSeconds = (int)(moveTimeInInt % 60);
-        
-        textTimer = GameObject.Find("Text_Timer").GetComponent<TMP_Text>();
-        
-        if (moveTimeInMinutes > 0) {textTimer.text = "Timer:  " + moveTimeInMinutes + ":" + moveTimeInSeconds;}
-        else {textTimer.text = "Timer:  " + moveTimeInSeconds;}
-
-    }
+    
     
     
     // Player Death

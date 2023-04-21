@@ -14,8 +14,7 @@ public class MCard : ScriptableObject
     [TextArea] public string cardLog;
     [TextArea] public string cardEffect;
     public string cardEffectDescription;
-    public float moveTime;
-    
+    public int movementStepAmount;
     
 
 }

@@ -19,7 +19,7 @@ public class Exit : MonoBehaviour
             // Load the big map
             
             // GameManager.moveTimeInInt= 11;  Debug.Log("Movetime reset in Exit");
-            SceneManager.LoadScene("Prototype_1",LoadSceneMode.Single);
+            SceneManager.LoadScene("GameWorld",LoadSceneMode.Single);
             
             // send a message to Manager, that player has entered the big map, the movement begins
         }
