@@ -1,52 +1,49 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Timer : MonoBehaviour
 {
 
-    public int moveTime;
-    
-    // Start is called before the first frame update
-    void Start()
+    public int currentMovementSteps;
+    private bool timerLock = false;
+    public TMP_Text textMovementSteps;
+
+    private void Start()
     {
-        StartCoroutine(MovementTimer());
+        timerLock = false;
+        currentMovementSteps = GameManager.movementSteps;
+    }
+    
+    
+    public void CountStep()
+    {
+        currentMovementSteps--;
     }
 
-    
 
-    // Coroutine
-    // Set the Player Movement Timer
-    // USE when entering the Big Map
-    
-    // Initialize Timer 
-    // Timer Implementation Loop
-    // Call Player Death function after counting down to 0
-    
-    IEnumerator MovementTimer()
+    private void Update()
     {
+        UpdateBigMapUI();
         
-        // Check Current cards, add up the movement time from all the cards
-        // Convert minutes and seconds to IEnumerator calculation value
-        // TODO : Switch to Adding up Card1 + Card2 + Card3
-        moveTime = GameManager.moveTimeInInt;
-        Debug.Log("Timer time reseted.");
-        
-        
-        // if it does not reach 0, then keep counting (Timer--)
-        // if it reaches 0, break the counting
-        while (true)
+        if (currentMovementSteps <= 0 && !timerLock)
         {
-            if (moveTime <= 0) { Debug.Log("Timer break"); break; }
-            yield return new WaitForSeconds(1);
-            moveTime--;
-            GameManager.moveTimeInInt = moveTime;
-            Debug.Log("Timer is counting  : " + moveTime);
+            timerLock = true;
+            GameManager.GM.PlayerDeath();
         }
-        
-        
-        // If time out and counting stops, Player dies and go back to the Shelter
-        GameManager.GM.PlayerDeath();
-        
+    }
+    
+    // Show Time On UI
+    
+    // Convert the float value to minutes+seconds time scale
+    // Update the current time in minutes+seconds to Big Map UI
+    // USE in UPDATE()
+
+    void UpdateBigMapUI()
+    {
+        textMovementSteps = GameObject.Find("Text_MovementStep").GetComponent<TMP_Text>();
+        textMovementSteps.text = "Movement Steps:  " + currentMovementSteps;
     }
 }
