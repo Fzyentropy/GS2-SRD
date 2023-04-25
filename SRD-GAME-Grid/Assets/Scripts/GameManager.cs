@@ -22,17 +22,15 @@ public class GameManager : MonoBehaviour
     public static bool isPlayerAcceptingInput;           // Can player move using WASD?
     
     public static int movementSteps;                     // the movement steps for player, int
-
-    public float gridScale = 2.5f;                          // the transformation scale from "Our Grid" to Unity Unit
+    
+    public float gridScale = 2.5f;                       // the transformation scale from "Our Grid" to Unity Unit
 
 
     // MIS
     
     // FILE RELEVANCE
     
-    
 
-    public Image cardImage;
 
     
     

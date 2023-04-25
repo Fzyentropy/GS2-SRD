@@ -8,9 +8,10 @@ public class Timer : MonoBehaviour
 {
 
     public int currentMovementSteps;
-    private bool timerLock = false;
+    private bool timerLock = false;     // Used to lock the "Load Scene" and make sure Player Death() only called once
     public TMP_Text textMovementSteps;
 
+    
     private void Start()
     {
         timerLock = false;

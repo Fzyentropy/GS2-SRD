@@ -15,7 +15,7 @@ public class CardSlot : MonoBehaviour, IDropHandler
 
         MCardComponent = dropped.GetComponentInChildren<CardInstantiateFromScriptableObject>().MCard;
 
-        if (MCardComponent.cardEffect == "MOVEMENT")
+        if (MCardComponent.cardEffect == CardEffect.MOVEMENT)
         {
             GameManager.movementSteps += MCardComponent.movementStepAmount;
             Debug.Log(GameManager.movementSteps);
