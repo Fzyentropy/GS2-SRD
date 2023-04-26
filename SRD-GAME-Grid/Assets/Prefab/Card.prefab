@@ -368,11 +368,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60e4e7554fff33541a914bce5ea0a221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MCard: {fileID: 0}
+  mCard: {fileID: 0}
   cardName: {fileID: 3773557244693550849}
   cardAvatar: {fileID: 4948054406544003435}
   cardLog: {fileID: 3950112337409156571}
-  cardEffect: {fileID: 9028326184881650344}
   cardEffectDescription: {fileID: 3823344905706142946}
 --- !u!1 &5701599337567685015
 GameObject:

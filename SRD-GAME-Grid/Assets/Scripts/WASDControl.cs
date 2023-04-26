@@ -8,12 +8,8 @@ public class WASDControl : MonoBehaviour
     public Rigidbody2D WASDRb;
     public float moveSpeed = 1;
     public float moveTimes = 4;
-    
-    // The transform scale from our grid to Unity coordinate unit
-    //  Our Grid  x  Transform Scale  =  Unity Unit
-    
 
-    public Timer timerReference;
+    public Timer timerReference;  // Refer to the timer script in the scene
 
     
     void Start()
@@ -62,7 +58,7 @@ public class WASDControl : MonoBehaviour
     {
         Vector3 target =
             new Vector3(transform.position.x + xMov, transform.position.y + yMov, transform.position.z);
-        transform.position = Vector3.Lerp(transform.position, target,moveSpeed);
+        transform.position = Vector3.Lerp(transform.position, target, moveSpeed);
     }
     void simpleWASDController()
     {
@@ -95,7 +91,7 @@ public class WASDControl : MonoBehaviour
     
     
 
-    void WASDController()
+    /*void WASDController()
     {
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
@@ -126,7 +122,7 @@ public class WASDControl : MonoBehaviour
         /*Vector3 objectPosition = transform.position;
         Vector2 currentGrid = new Vector2(objectPosition.x, objectPosition.y);
         Vector2 direction = new Vector2(xMove, yMove);
-        Vector2 destinationGrid = currentGrid + direction;*/
+        Vector2 destinationGrid = currentGrid + direction;#1#
         Vector2 destinationGrid = new Vector2(transform.position.x+xMove,transform.position.y + yMove);
 
         float currentMovement = 0;
@@ -153,7 +149,7 @@ public class WASDControl : MonoBehaviour
         Debug.Log(IsMoveable);
         
         yield return null;
-    }
+    }*/
     
     
     

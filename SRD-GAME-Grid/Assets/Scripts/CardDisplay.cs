@@ -36,7 +36,7 @@ public class CardDisplay : MonoBehaviour
         for (int i = 0; i < cardObjects.Length; i++)
         {
             cardInstanceHolder = Instantiate(card, cardGrid.transform);
-            cardInstanceHolder.GetComponentInChildren<CardInstantiateFromScriptableObject>().MCard = cardObjects[i];
+            cardInstanceHolder.GetComponentInChildren<CardInstance>().mCard = cardObjects[i];
         }
             
         
