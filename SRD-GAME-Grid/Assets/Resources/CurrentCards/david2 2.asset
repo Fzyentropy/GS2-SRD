@@ -10,17 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8bbcf723712319344871ff5cbb8d5b34, type: 3}
-  m_Name: richar
+  m_Name: david2 2
   m_EditorClassIdentifier: 
-  cardName: 'dfafadsfar '
-  cardAvatar: {fileID: 21300000, guid: c52575ff834d11c4592274978c4afb60, type: 3}
+  cardName: daviv
+  cardAvatar: {fileID: 0}
   currentUpgradeLevel: 1
-  cardLog1: gfadgref
-  cardLog2: fdagagda
-  cardLog3: fdafad
-  cardEffectDescription: restore
+  cardLog1: thaiofjlkdasjkfl;
+  cardLog2: gthtrhtdfhgf
+  cardLog3: aegstghgdsgfds
   cardEffect: 0
   isUpgradable: 1
-  movementStepAmount: 0
-  restorable: 1
-  searchable: 1
+  movementStepAmount: 5
+  restorable: 0
+  searchable: 0

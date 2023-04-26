@@ -13,7 +13,7 @@ using UnityEngine.UI;
 /// </summary>
 public class CardInstance : MonoBehaviour
 {
-
+    // Waiting to be assigned, a MCard ScriptableObject Instance
     public MCard mCard;
 
     public TMP_Text cardName;
@@ -28,7 +28,7 @@ public class CardInstance : MonoBehaviour
         cardName.text = mCard.cardName;
         cardAvatar.sprite = mCard.cardAvatar;
         SetCardlogAccrodingToUpgrade();                  // Set Card Log according to current Upgrade Level
-        cardEffectDescription.text = mCard.cardEffectDescription;
+        SetCardEffectDescription();
     }
 
     
@@ -52,6 +52,33 @@ public class CardInstance : MonoBehaviour
             cardLog.text = mCard.cardLog1;
         }
     }
+
+    
+    // Set Card Effect Description Text according to Card Effect
+    // TODO if there's new Card Mechanics, should update this function
+    // 
+    private void SetCardEffectDescription()
+    {
+        if (mCard.cardEffect == CardEffect.MOVEMENT)
+        {
+            cardEffectDescription.text = " MOVEMENT  " + mCard.movementStepAmount;
+        }
+        if (mCard.cardEffect == CardEffect.RESTORE)
+        {
+            cardEffectDescription.text = "  RESTORE  ";
+        }
+        if (mCard.cardEffect == CardEffect.SEARCH)
+        {
+            cardEffectDescription.text = "  SEARCH  ";
+        }
+
+
+
+
+    }
+    
+    
+    
 
     
 }

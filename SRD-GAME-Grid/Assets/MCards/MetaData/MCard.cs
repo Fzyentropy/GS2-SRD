@@ -19,7 +19,7 @@ public class MCard : ScriptableObject
     [TextArea] public string cardLog2;          // 2nd Level Card Log
     [TextArea] public string cardLog3;          // 3rd Level Card Log
     
-    public string cardEffectDescription;        // Card Effect displayed in card as text
+    // public string cardEffectDescription;        // Card Effect displayed in card as text
     
     public CardEffect cardEffect;               // Enum of card effect
     public bool isUpgradable = false;           // If the Card is upgradable
@@ -59,7 +59,7 @@ public class CardEditor : Editor
         EditorGUILayout.PropertyField(serializedObject.FindProperty("cardLog3"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("isUpgradable"));
         
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("cardEffectDescription"));
+        // EditorGUILayout.PropertyField(serializedObject.FindProperty("cardEffectDescription"));
         
 
         // If you select a ScriptableObject in the Editor, transform it into a MCard, and refer it

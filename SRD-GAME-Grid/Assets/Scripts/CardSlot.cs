@@ -13,7 +13,7 @@ public class CardSlot : MonoBehaviour, IDropHandler
         DraggableObject draggableObject = dropped.GetComponent<DraggableObject>();
         draggableObject.parentBeforeDrag = transform;
 
-        MCardComponent = dropped.GetComponentInChildren<CardInstantiateFromScriptableObject>().MCard;
+        MCardComponent = dropped.GetComponentInChildren<CardInstance>().mCard;
 
         if (MCardComponent.cardEffect == CardEffect.MOVEMENT)
         {
