@@ -21,5 +21,5 @@ MonoBehaviour:
   cardEffect: 0
   isUpgradable: 0
   movementStepAmount: 5
-  restorable: 0
+  restorable: 1
   searchable: 0
