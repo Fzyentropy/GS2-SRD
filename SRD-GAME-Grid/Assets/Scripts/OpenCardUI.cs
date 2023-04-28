@@ -61,6 +61,8 @@ public class OpenCardUI : MonoBehaviour
         {
             cardCollectionHolder = Instantiate(cardCollection);                     // Open the Card UI, Use Instantiate
             isCollectionOpen = true;
+            CardManager.CM.DisplayInventoryCards();
+            CardManager.CM.DisplayHandCards();
             Debug.Log("card collection instantiated");
         }
         else
