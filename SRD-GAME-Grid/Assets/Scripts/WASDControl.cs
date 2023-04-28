@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class WASDControl : MonoBehaviour
 {
     public static bool IsMoveable = true;
+    public bool isMoving = false;
     public Rigidbody2D WASDRb;
     public float moveSpeed = 1;
     public float moveTimes = 4;
@@ -21,7 +23,8 @@ public class WASDControl : MonoBehaviour
 
     void Update()
     {
-        if(IsMoveable) { simpleWASDController(); }
+        if(IsMoveable && !isMoving)
+        { simpleWASDController(); }
         
     }
     
@@ -58,30 +61,34 @@ public class WASDControl : MonoBehaviour
     {
         Vector3 target =
             new Vector3(transform.position.x + xMov, transform.position.y + yMov, transform.position.z);
-        transform.position = Vector3.Lerp(transform.position, target, moveSpeed);
+        transform.DOMove(target, 0.3f, false).OnComplete(() => { isMoving = false;});
     }
     void simpleWASDController()
     {
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
+            isMoving = true;
             CountMove();
             transformGrid(0, GameManager.GM.gridScale);
         }
 
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
+            isMoving = true;
             CountMove();
             transformGrid(-GameManager.GM.gridScale, 0);
         }
 
         if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
+            isMoving = true;
             CountMove();
             transformGrid(0, -GameManager.GM.gridScale);
         }
 
         if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
+            isMoving = true;
             CountMove();
             transformGrid(GameManager.GM.gridScale, 0);
         }
