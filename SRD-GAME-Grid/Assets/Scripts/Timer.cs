@@ -15,7 +15,8 @@ public class Timer : MonoBehaviour
     private void Start()
     {
         timerLock = false;
-        currentMovementSteps = GameManager.movementSteps;
+        currentMovementSteps = GameManager.GM.movementSteps;
+        textMovementSteps = GameObject.Find("Text_MovementStep").GetComponent<TMP_Text>();
     }
     
     
@@ -44,7 +45,6 @@ public class Timer : MonoBehaviour
 
     void UpdateBigMapUI()
     {
-        textMovementSteps = GameObject.Find("Text_MovementStep").GetComponent<TMP_Text>();
         textMovementSteps.text = "Movement Steps:  " + currentMovementSteps;
     }
 }
