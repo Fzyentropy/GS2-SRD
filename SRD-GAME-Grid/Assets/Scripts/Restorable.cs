@@ -8,25 +8,16 @@ using UnityEngine.UI;
 public class Restorable : MonoBehaviour
 {
     public GameObject restoreButton;
+    public GameObject restoreButtonHolder;
     public SpriteRenderer buildingSprite;           // sprite of the building
     public bool isRestored = false;                  // if the building has been restored
     public bool isButtonShown = false;              // if the Button is shown, true: showed, false; hidden
-    
+
     void Start()
     {
         
-        // Initialize Button References
-        if (restoreButton == null)
-        {
-            restoreButton = GameObject.Find("Button_Restore");
-            if (restoreButton == null)
-            {
-                // Instantiate a new button
-            }
-        }
-        
-        restoreButton.GetComponent<Button>().onClick.AddListener(() => RestoreButtonClick());   // Set button function
-        restoreButton.SetActive(false);                                                             // Deactivate Button
+        // InitializeButton();
+        CheckRestoreButton();
         
         buildingSprite = gameObject.GetComponent<SpriteRenderer>();
         buildingSprite.color = Color.clear;
@@ -73,38 +64,67 @@ public class Restorable : MonoBehaviour
     // if didn't bring restore card then show a grew button
     void ShowRestoreButton()
     {
+
+        restoreButtonHolder = Instantiate(restoreButton, GameObject.Find("Canvas_2_UI").transform);
+        restoreButtonHolder.GetComponent<Button>().onClick.AddListener(()=> RestoreButtonClick());
         
         if (GameManager.GM.isAbleToRestore)       // if player has Restore card
         {
             // SHOW Restore Button
-            restoreButton.GetComponent<Button>().interactable = true;
+            restoreButtonHolder.GetComponent<Button>().interactable = true;
             Debug.Log("Button shown, and player has the RESTORE");
         }
         else                                      // if player don't have Restore card
         {
             // SHOW grey Restore Button
-            restoreButton.GetComponent<Button>().interactable = false;
+            restoreButtonHolder.GetComponent<Button>().interactable = false;
             Debug.Log("Button shown, but player don't have the RESTORE");
         }
         
-        restoreButton.SetActive(true);
     }
     void HideRestoreButton()
     {
-        restoreButton.SetActive(false);
+        Destroy(restoreButtonHolder);
     }
 
 
     void RestoreButtonClick()
     {
         // Button Vanish
-        restoreButton.SetActive(false);
+        Destroy(restoreButtonHolder);
         isRestored = true;
         
         // sprite.color
         buildingSprite.DOColor(Color.white, 1.5f);
     }
+
     
+    /*void InitializeButton()
+    {
+        // Initialize Button References
+        if (restoreButton == null)
+        {
+            restoreButton = GameObject.Find("Button_Restore");
+            if (restoreButton == null)
+            {
+                // Instantiate a new button
+            }
+        }
+        
+        // Add Button Click Function
+        restoreButton.GetComponent<Button>().onClick.AddListener(() => RestoreButtonClick());
+        
+        restoreButton.SetActive(false);  
+    }*/
+
+
+    void CheckRestoreButton()
+    {
+        if (restoreButton == null)
+        {
+            throw new NullReferenceException();
+        }
+    }
     
     
 }

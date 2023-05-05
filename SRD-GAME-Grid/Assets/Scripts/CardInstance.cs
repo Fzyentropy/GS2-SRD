@@ -72,9 +72,7 @@ public class CardInstance : MonoBehaviour
             cardEffectDescription.text = "  SEARCH  ";
         }
 
-
-
-
+        
     }
     
     

@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
     public int movementSteps;                       // the movement steps for player, int
     public bool isAbleToRestore;                    // if player can restore (Holding the RESTORE card)
     public bool isAbleToSearch;                     // if player can search (Holding the SEARCH card)
+
+    public int MemoryGems;
         //add more card effect here
 
     // MIS
