@@ -45,6 +45,7 @@ public class Timer : MonoBehaviour
 
     void UpdateBigMapUI()
     {
-        textMovementSteps.text = "Movement Steps:  " + currentMovementSteps;
+        textMovementSteps.text = "Movement Steps:  " + currentMovementSteps + "\n" + 
+                                 "Memory Gems:  " + GameManager.GM.MemoryGems;
     }
 }
