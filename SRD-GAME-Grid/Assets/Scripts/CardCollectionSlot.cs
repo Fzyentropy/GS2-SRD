@@ -20,8 +20,8 @@ public class CardCollectionSlot : MonoBehaviour, IDropHandler
 
         if (MCardComponent.cardEffect == CardEffect.MOVEMENT)
         {
-            GameManager.movementSteps -= MCardComponent.movementStepAmount;
-            Debug.Log(GameManager.movementSteps);
+            GameManager.GM.movementSteps -= MCardComponent.movementStepAmount;
+            Debug.Log(GameManager.GM.movementSteps);
         }
     }
     

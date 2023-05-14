@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8bbcf723712319344871ff5cbb8d5b34, type: 3}
-  m_Name: david
+  m_Name: David
   m_EditorClassIdentifier: 
-  cardName: 
+  cardName: David
   cardAvatar: {fileID: 0}
   currentUpgradeLevel: 1
   cardLog1: 
   cardLog2: 
   cardLog3: 
-  cardEffect: 1
+  cardEffect: 0
   isUpgradable: 0
-  movementStepAmount: 5
-  restorable: 1
-  searchable: 1
+  movementStepAmount: 0
+  restorable: 0
+  searchable: 0
